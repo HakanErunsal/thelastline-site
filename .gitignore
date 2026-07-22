@@ -1,3 +1,6 @@
 node_modules/
 .DS_Store
 Thumbs.db
+
+# Keep local only; repo is public for GitHub Pages
+README.md
