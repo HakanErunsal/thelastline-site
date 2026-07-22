@@ -2,7 +2,7 @@
   "name": "thelastline",
   "version": "1.0.0",
   "private": true,
-  "description": "The Last Line — static game landing page (GitHub Pages)",
+  "description": "The Last Line game landing page",
   "scripts": {
     "dev": "npx --yes serve . -p 3456",
     "start": "npm run dev"
