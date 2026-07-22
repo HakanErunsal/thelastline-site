@@ -55,16 +55,24 @@
     <main>
       <section class="hero">
         <div class="hero__media" aria-hidden="true">
+          <img
+            class="hero__poster"
+            src="/assets/images/thelastline_horde_arena-3d5bf4.jpg"
+            alt=""
+            width="1920"
+            height="1080"
+            fetchpriority="high"
+            decoding="async"
+          />
           <video
             class="hero__video"
             id="hero-video"
-            src="/assets/video/thelastline_trailer-f901bd.mp4"
+            data-src="/assets/video/thelastline_trailer-f901bd.mp4"
             poster="/assets/images/thelastline_horde_arena-3d5bf4.jpg"
-            autoplay
             muted
             loop
             playsinline
-            preload="auto"
+            preload="none"
           ></video>
         </div>
         <div class="hero__scrim" aria-hidden="true"></div>
@@ -258,9 +266,29 @@
       const heroVideo = document.getElementById("hero-video");
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-      if (reducedMotion.matches && heroVideo) {
-        heroVideo.pause();
-        heroVideo.removeAttribute("autoplay");
+      function initHeroVideo() {
+        if (!heroVideo || reducedMotion.matches) return;
+        const src = heroVideo.dataset.src;
+        if (!src || heroVideo.src) return;
+
+        heroVideo.src = src;
+        heroVideo.load();
+
+        heroVideo.addEventListener(
+          "canplay",
+          () => {
+            heroVideo.classList.add("is-ready");
+            heroVideo.closest(".hero__media")?.classList.add("is-video-ready");
+            heroVideo.play().catch(() => {});
+          },
+          { once: true }
+        );
+      }
+
+      if (document.readyState === "complete") {
+        setTimeout(initHeroVideo, 0);
+      } else {
+        window.addEventListener("load", initHeroVideo, { once: true });
       }
 
       window.addEventListener(
