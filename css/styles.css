@@ -1367,14 +1367,9 @@ body::after {
   font-size: 0.95rem;
 }
 
-.press-downloads__status {
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  padding: 0.35rem 0.65rem;
-  border: 1px solid var(--line);
+.press-downloads__link {
+  flex-shrink: 0;
+  min-width: 7.5rem;
 }
 
 .press-updated {

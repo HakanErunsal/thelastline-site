@@ -1,0 +1,11 @@
+filename,title,description_en,format,width,height,has_ui,usage
+TLL_AppIcon_512x512.png,App icon,Official app icon 512 PNG,png,512,512,no,Press and editorial
+TLL_AppIcon_1024x1024.png,App icon,Official app icon 1024 PNG,png,1024,1024,no,Press and editorial
+TLL_KeyArt_TheDrop_Clean_1920x888.jpg,Key art,The Drop helicopter minigun over Millhaven,jpg,1920,888,no,Editorial key art
+TLL_Screenshot_01_MillhavenHorde_1920x888.jpg,Screenshot,Millhaven horde siege,jpg,1920,888,yes,Press screenshot
+TLL_Screenshot_02_TheDropHelicopter_1920x888.jpg,Screenshot,The Drop helicopter defense,jpg,1920,888,no,Press screenshot
+TLL_Screenshot_03_MobileHUD_1920x888.jpg,Screenshot,Mobile HUD combat,jpg,1920,888,yes,Press screenshot
+TLL_Screenshot_04_SubwayPlatform_1920x888.jpg,Screenshot,Subway platform arena,jpg,1920,888,yes,Press screenshot
+TLL_Screenshot_05_BossEncounter_1920x888.jpg,Screenshot,Arena boss fight,jpg,1920,888,yes,Press screenshot
+TLL_Screenshot_06_Loadout_1920x888.jpg,Screenshot,Loadout and upgrades,jpg,1920,888,yes,Press screenshot
+TLL_Screenshot_07_ForestNight_1920x888.jpg,Screenshot,Forest night arena,jpg,1920,888,yes,Press screenshot
