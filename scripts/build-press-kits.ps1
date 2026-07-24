@@ -58,15 +58,13 @@ Copy-Asset "$RepoRoot/assets/images/thelastline_app_icon.png" "$full/01_Logos/Ap
 if (Test-Path "$OutDir/PressKit_Images_Full.zip") { Remove-Item "$OutDir/PressKit_Images_Full.zip" -Force }
 Compress-Archive -Path "$full/*" -DestinationPath "$OutDir/PressKit_Images_Full.zip" -CompressionLevel Optimal
 
-Remove-Item "$StageRoot/full" -Recurse -Force
-$broll = "$StageRoot/broll/TheLastLine_B-Roll_2026-07"
+Remove-Item "$StageRoot/full" -Recurse -Force -ErrorAction SilentlyContinue
+$broll = "$StageRoot/broll/TheLastLine_Trailer_2026-07"
 Ensure-Dir "$broll/00_README"
 Ensure-Dir "$broll/01_Official_Trailer"
-Ensure-Dir "$broll/02_Gameplay_Clips"
 Copy-Asset "$KitRoot/B-Roll_README.txt" "$broll/00_README/README.txt"
 Copy-Asset "$KitRoot/Usage_and_Credits.txt" "$broll/00_README/Usage_and_Credits.txt"
 Copy-Asset "$RepoRoot/assets/video/thelastline_trailer-f901bd.mp4" "$broll/01_Official_Trailer/TLL_Trailer_Official_1080p_EN.mp4"
-Copy-Asset "$RepoRoot/assets/video/thelastline_lod_demo-05517a.mp4" "$broll/02_Gameplay_Clips/TLL_Gameplay_LODDemo_1080p.mp4"
 if (Test-Path "$OutDir/B-Roll_Pack.zip") { Remove-Item "$OutDir/B-Roll_Pack.zip" -Force }
 Compress-Archive -Path "$broll/*" -DestinationPath "$OutDir/B-Roll_Pack.zip" -CompressionLevel Optimal
 

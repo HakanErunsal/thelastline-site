@@ -16,4 +16,6 @@ Not yet in this build (future export pass):
 - Five separate unedited B-roll clips
 - App Store screenshot set with marketing headlines
 
+Video: official gameplay trailer only (no internal demo reels).
+
 Questions: thelastline@rigbak.com
