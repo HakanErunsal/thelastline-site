@@ -53,6 +53,9 @@
           <a href="../privacy.html">Privacy</a>
           <a href="../terms.html">Terms</a>
         </nav>
+        <a class="press-close" href="../index.html" aria-label="Back to main page">
+          <span aria-hidden="true">×</span>
+        </a>
       </div>
     </header>
 
@@ -551,7 +554,7 @@
       </p>
     </footer>
 
-    <div class="press-lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Screenshot gallery">
+    <div class="press-lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot gallery" aria-hidden="true">
       <button type="button" class="press-lightbox__close" id="lightbox-close" aria-label="Close gallery">
         ×
       </button>
@@ -606,14 +609,17 @@
         lightboxDownload.href = download?.href || img.src;
 
         lastFocus = document.activeElement;
-        lightbox.hidden = false;
+        lightbox.classList.add("is-open");
+        lightbox.setAttribute("aria-hidden", "false");
         document.body.classList.add("press-lightbox-open");
         lightboxClose.focus();
       }
 
       function closeLightbox() {
-        lightbox.hidden = true;
+        lightbox.classList.remove("is-open");
+        lightbox.setAttribute("aria-hidden", "true");
         document.body.classList.remove("press-lightbox-open");
+        lightboxImg.removeAttribute("src");
         lastFocus?.focus();
       }
 
@@ -637,7 +643,7 @@
       });
 
       document.addEventListener("keydown", (event) => {
-        if (lightbox.hidden) return;
+        if (!lightbox.classList.contains("is-open")) return;
         if (event.key === "Escape") closeLightbox();
         if (event.key === "ArrowLeft") stepLightbox(-1);
         if (event.key === "ArrowRight") stepLightbox(1);
