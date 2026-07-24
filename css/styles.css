@@ -907,32 +907,6 @@ body::after {
 
 /* Press kit */
 
-.press-close {
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-  width: 44px;
-  height: 44px;
-  margin-left: 0.25rem;
-  border: 1px solid var(--line);
-  background: rgba(12, 14, 18, 0.65);
-  color: var(--text);
-  font-size: 1.65rem;
-  line-height: 1;
-  transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
-}
-
-.site-header:not(.is-scrolled):not(.site-header--solid) .press-close {
-  background: rgba(5, 6, 8, 0.55);
-  border-color: rgba(255, 255, 255, 0.14);
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.65);
-}
-
-.press-close:hover {
-  border-color: rgba(232, 93, 4, 0.55);
-  color: var(--ember);
-}
-
 .press {
   padding-top: 0;
 }
