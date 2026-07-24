@@ -1,5 +1,5 @@
 THE LAST LINE — ENGINEERING OVERVIEW (EN)
-https://thelastline.rigbak.com/press/engineering/
+https://thelastline.rigbak.com/engineering/
 
 Solo Unreal Engine 5.7 project by Rigbak. Four in-house plugins plus game-specific horde and encounter code.
 

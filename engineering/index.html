@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#050608" />
+    <title>Engineering Overview | The Last Line</title>
+    <meta
+      name="description"
+      content="Solo Unreal Engine 5 engineering fact sheet for The Last Line: in-house plugins, mobile combat systems, and iOS shipping solutions."
+    />
+    <meta property="og:title" content="The Last Line — Engineering & Systems Overview" />
+    <meta
+      property="og:description"
+      content="RevenueCatBridge, Soulslike Enemy Combat, MobileEssentials, ModularFPS, haptics, aim assist, combat indicators, device quality, and iOS fixes."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://thelastline.rigbak.com/engineering/" />
+    <meta
+      property="og:image"
+      content="https://thelastline.rigbak.com/assets/images/thelastline_flamethrower-9e99aa.jpg"
+    />
+    <link rel="canonical" href="https://thelastline.rigbak.com/engineering/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=Source+Sans+3:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="icon" href="../assets/images/thelastline_app_icon.png" type="image/png" />
+  </head>
+  <body class="eng-page">
+    <header class="site-header site-header--solid" id="header">
+      <div class="site-header__inner">
+        <a class="brand" href="../index.html">
+          <img
+            class="brand__icon"
+            src="../assets/images/thelastline_app_icon.png"
+            alt=""
+            width="38"
+            height="38"
+          />
+          <span>The Last Line</span>
+        </a>
+        <nav class="nav" aria-label="Site">
+          <a href="../index.html">Game</a>
+          <a href="../press/">Press</a>
+          <a href="index.html" aria-current="page">Engineering</a>
+          <a href="../privacy.html">Privacy</a>
+          <a href="../terms.html">Terms</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="eng">
+      <header class="eng-intro">
+        <p class="eng-intro__label">Engineering</p>
+        <h1 class="eng-intro__title">Solo Unreal engineering overview</h1>
+        <p class="eng-intro__lead">
+          The Last Line is built in Unreal Engine 5.7 by a solo developer at Rigbak.
+          The game ships on four in-house plugins plus game-specific horde and
+          encounter systems. This page summarizes what each layer does, with
+          concrete implementation notes for editorial and App Store review.
+        </p>
+        <p class="eng-intro__meta">
+          Engine 5.7 · iPhone · Bundle <code>com.rigbak.thelastline</code> ·
+          <a href="../index.html">Game site</a>
+          ·
+          <a href="../press/">Press kit</a>
+        </p>
+      </header>
+
+      <section class="eng-map" aria-labelledby="eng-map-heading">
+        <h2 class="eng-map__title" id="eng-map-heading">How the stack fits together</h2>
+        <dl class="eng-map__grid">
+          <div>
+            <dt>ModularFPS</dt>
+            <dd>Player GAS, weapons, damage, input</dd>
+          </div>
+          <div>
+            <dt>MobileEssentials</dt>
+            <dd>Mobile UX, economy, aim assist, combat HUD, quality presets</dd>
+          </div>
+          <div>
+            <dt>Soulslike Enemy Combat</dt>
+            <dd>Arena boss AI, melee traces, reactions (not horde zombies)</dd>
+          </div>
+          <div>
+            <dt>RevenueCatBridge</dt>
+            <dd>StoreKit IAP, virtual currency, entitlements</dd>
+          </div>
+          <div>
+            <dt>The Last Line (game module)</dt>
+            <dd>Horde batching, encounters, campaign, Endless, barricade flow</dd>
+          </div>
+        </dl>
+      </section>
+
+      <div class="eng-stack">
+        <article class="eng-system" id="revenuecat">
+          <h2>RevenueCatBridge</h2>
+          <p class="eng-system__lead">
+            In-house UE plugin (v1.6.0) exposing RevenueCat purchases, restore,
+            customer info, virtual currencies, and paywalls through
+            <code>URevenueCatSubsystem</code>.
+          </p>
+          <ul>
+            <li>
+              iOS bridge in <code>RevenueCatIOSBridge.mm</code> with bundled
+              RevenueCat and RevenueCatUI frameworks; Android via JNI.
+            </li>
+            <li>
+              Game wallet reads RevenueCat virtual currency code
+              <code>GS</code> through <code>UGoldenScrapWalletSubsystem</code>.
+            </li>
+            <li>
+              <code>UTheLastLineGameInstance</code> applies entitlements on start
+              and listens for customer-info updates.
+            </li>
+          </ul>
+        </article>
+
+        <article class="eng-system" id="sec">
+          <h2>Soulslike Enemy Combat</h2>
+          <p class="eng-system__lead">
+            In-house Fab plugin (v2.2.1) for souls-like boss AI: action scoring,
+            reactions, melee traces, awareness, and combat roles.
+          </p>
+          <ul>
+            <li>
+              Core types include <code>AEnemyControllerBase</code>,
+              <code>USECBrainComponent</code>, and
+              <code>USECMeleeTraceComponent</code>.
+            </li>
+            <li>
+              Arena bosses (GraveBreaker, IceWarlord, SawGuy, Tepegoz) use SEC;
+              horde zombies use separate batch pathing, not SEC brains.
+            </li>
+            <li>
+              Encounters start through
+              <code>UEncounterManagerSubsystem::StartEncounter</code>.
+            </li>
+            <li>Requires GAS, StateTree, and Motion Warping modules.</li>
+          </ul>
+        </article>
+
+        <article class="eng-system" id="mobileessentials">
+          <h2>MobileEssentials</h2>
+          <p class="eng-system__lead">
+            Reusable mobile foundation plugin (v0.1.0, beta) split across Core,
+            Services, UI, and LoadingScreen modules.
+          </p>
+          <ul>
+            <li>
+              Hosts aim assist, combat indicators, graphics quality, haptics,
+              object pooling, battle pass, analytics, and shared save base classes.
+            </li>
+            <li>
+              Progression and storefront systems live here rather than in the
+              game module so they can ship in other titles.
+            </li>
+            <li>
+              Combat indicator, aim assist, and quality libraries are consumed
+              directly by The Last Line player and game instance code.
+            </li>
+          </ul>
+        </article>
+
+        <article class="eng-system" id="modularfps">
+          <h2>S_ModularFPS (ModularFPS)</h2>
+          <p class="eng-system__lead">
+            In-house GAS FPS framework (v1.0) that The Last Line extends for
+            weapons, attributes, and player combat.
+          </p>
+          <ul>
+            <li>
+              <code>AFPSCharacter</code> and <code>UFPSAttributeSet</code> chain
+              into <code>ATheLastLineCharacter</code> and
+              <code>ATheLastLinePlayerController</code>.
+            </li>
+            <li>
+              <code>UCombatComponent</code> manages two weapon slots, equip/switch,
+              and preview flow; weapons inherit from <code>ABaseWeapon</code>.
+            </li>
+            <li>
+              Tag-based ability input routes through
+              <code>UFPSAbilitySystemComponent</code> and
+              <code>UFPSInputConfig</code>.
+            </li>
+          </ul>
+        </article>
+
+        <article class="eng-system" id="haptics">
+          <h2>Haptics</h2>
+          <p class="eng-system__lead">
+            Cross-platform haptic API in MobileEssentials Core:
+            <code>UHapticFunctionLibrary</code> with a runtime enable gate synced
+            to player settings.
+          </p>
+          <ul>
+            <li>
+              iOS uses UIKit feedback generators (selection, impact light/medium/heavy,
+              notification) on the main queue.
+            </li>
+            <li>
+              Android uses amplitude/duration vibration patterns for impacts and
+              notifications.
+            </li>
+            <li>
+              Hold interactions call <code>PlayImpactHaptic</code> from
+              <code>HoldInteractionZone</code> during charged interactions.
+            </li>
+          </ul>
+        </article>
+
+        <article class="eng-system" id="aim-assist">
+          <h2>Aim assist</h2>
+          <p class="eng-system__lead">
+            Controller-mounted <code>UAimAssistComponent</code> rotates aim toward
+            actors implementing <code>IAimAssistTargetInterface</code>. Correction
+            only, not auto-fire.
+          </p>
+          <ul>
+            <li>
+              Defaults include weight 0.6, 2° inner dead zone, 8° falloff, and
+              120°/s max correction speed.
+            </li>
+            <li>
+              Intent detection backs off when the player deliberately aims away;
+              no input restores full assist strength.
+            </li>
+            <li>
+              States: Idle, Tracking, Suspended. Targets can move their aim point
+              each tick via the interface.
+            </li>
+          </ul>
+        </article>
+
+        <article class="eng-system" id="combat-indicators">
+          <h2>Combat indicators</h2>
+          <p class="eng-system__lead">
+            Zero-UMG combat HUD renderer:
+            <code>UCombatIndicatorSubsystem</code> draws pooled damage numbers,
+            health bars, hit direction cues, and screen flash on the HUD canvas.
+          </p>
+          <ul>
+            <li>
+              Callers push events only; the subsystem does not detect damage
+              itself. Numbers project once, then drift in screen space.
+            </li>
+            <li>
+              Project defaults tune pool sizes and lifetimes; game config extends
+              draw distance for large arenas.
+            </li>
+            <li>
+              Endless mode suppresses indicators during between-wave prep via
+              <code>AEndlessGameMode::SetCombatIndicatorSuppressed</code>.
+            </li>
+          </ul>
+        </article>
+
+        <article class="eng-system" id="quality">
+          <h2>Device quality system</h2>
+          <p class="eng-system__lead">
+            <code>UGraphicsQualityLibrary</code> assigns Low/Medium/High/Epic presets,
+            render scale, and FPS cap without letting engine defaults clobber the
+            saved tier.
+          </p>
+          <ul>
+            <li>
+              Auto-detect reads declared device-profile scalability, with RAM
+              fallback buckets (≤3 GB Low, 4–7 GB Medium, ≥8 GB High). Epic is
+              never auto-assigned.
+            </li>
+            <li>
+              Render scale: Low 0.65, Medium 0.80, High/Epic 1.00 via
+              <code>r.ScreenPercentage</code>.
+            </li>
+            <li>
+              <code>UTheLastLineGameInstance</code> calls
+              <code>ApplySavedSettings()</code> on start; a detect-version flag
+              forces one-time re-detection after preset logic changes.
+            </li>
+          </ul>
+        </article>
+
+        <article class="eng-system" id="ios">
+          <h2>iOS technical solutions</h2>
+          <p class="eng-system__lead">
+            Platform-specific fixes and integrations for App Store shipping on
+            iPhone.
+          </p>
+          <ul>
+            <li>
+              Landscape-only runtime settings with 60 FPS lock,
+              high-refresh support, Game Center, and premade entitlements for
+              associated domains and StoreKit.
+            </li>
+            <li>
+              <code>CFBundleIconName=AppIcon</code> injected into plist
+              AdditionalPlistData to fix TestFlight icon delivery on iOS 11+.
+            </li>
+            <li>
+              Firebase iOS init repairs truncated database URLs from config by
+              reading <code>DATABASE_URL</code> from GoogleService-Info.plist.
+            </li>
+            <li>
+              Home-screen shortcuts defer cold-launch broadcasts until the engine
+              tick loop is safe; warm launches guard on
+              <code>GIsRunning</code>.
+            </li>
+            <li>
+              CI packaging script strips AppleDouble sidecars and extended
+              attributes before UHT/build steps on network volumes.
+            </li>
+          </ul>
+        </article>
+      </div>
+
+      <footer class="eng-footer">
+        <p>
+          Questions:
+          <a href="mailto:thelastline@rigbak.com">thelastline@rigbak.com</a>
+        </p>
+        <p>
+          <a href="../press/">Press kit</a>
+          ·
+          <a href="../index.html">Game site</a>
+        </p>
+        <p class="eng-footer__updated">Last updated: 24 July 2026</p>
+      </footer>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="year"></span> Rigbak</p>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
