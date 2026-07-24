@@ -1247,6 +1247,7 @@ body::after {
   width: min(100%, 180px);
   border-radius: 22%;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+  background: transparent;
 }
 
 .press-brand__preview p {
