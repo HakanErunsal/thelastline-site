@@ -1,0 +1,15 @@
+THE LAST LINE — ENGINEERING OVERVIEW (EN)
+https://thelastline.rigbak.com/press/engineering/
+
+Solo Unreal Engine 5.7 project by Rigbak. Four in-house plugins plus game-specific horde and encounter code.
+
+STACK
+- ModularFPS: player GAS, weapons, damage, input
+- MobileEssentials: mobile UX, economy, aim assist, combat HUD, quality presets
+- Soulslike Enemy Combat v2.2.1: arena boss AI (not horde zombies)
+- RevenueCatBridge v1.6.0: StoreKit IAP and virtual currency GS
+- The Last Line game module: horde batching, encounters, campaign, Endless
+
+See the web page for system-by-system evidence and class names.
+
+Press: thelastline@rigbak.com

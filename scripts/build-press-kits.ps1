@@ -16,6 +16,7 @@ function Add-Common($base) {
   Copy-Asset "$KitRoot/PressKit_README.txt" "$base/00_README/README.txt"
   Copy-Asset "$KitRoot/Fact_Sheet_EN.txt" "$base/00_README/Fact_Sheet_EN.txt"
   Copy-Asset "$KitRoot/Fact_Sheet_TR.txt" "$base/00_README/Fact_Sheet_TR.txt"
+  Copy-Asset "$KitRoot/Fact_Sheet_Engineering_EN.txt" "$base/00_README/Fact_Sheet_Engineering_EN.txt"
   Copy-Asset "$KitRoot/Usage_and_Credits.txt" "$base/00_README/Usage_and_Credits.txt"
 }
 
