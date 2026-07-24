@@ -128,34 +128,35 @@
           <p class="press-section__label">Video</p>
           <h2 class="press-section__title" id="trailer-heading">Gameplay trailer</h2>
         </div>
-        <div class="press-trailer">
-          <button
-            type="button"
-            class="press-trailer__cover"
-            id="trailer-play"
-            aria-label="Play gameplay trailer"
-          >
-            <img
-              src="../assets/images/thelastline_horde_arena-3d5bf4.jpg"
-              alt=""
-              width="1920"
-              height="1080"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="press-trailer__play" aria-hidden="true"></span>
-          </button>
-          <video
-            class="press-trailer__video"
-            id="trailer-video"
-            controls
-            playsinline
-            preload="none"
-            poster="../assets/images/thelastline_horde_arena-3d5bf4.jpg"
-            hidden
-          >
-            <source src="../assets/video/thelastline_trailer-f901bd.mp4" type="video/mp4" />
-          </video>
+        <div class="press-trailer" id="press-trailer">
+          <div class="press-trailer__frame">
+            <button
+              type="button"
+              class="press-trailer__cover"
+              id="trailer-play"
+              aria-label="Play gameplay trailer"
+            >
+              <img
+                src="../assets/images/thelastline_horde_arena-3d5bf4.jpg"
+                alt=""
+                width="1920"
+                height="1080"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="press-trailer__play" aria-hidden="true"></span>
+            </button>
+            <video
+              class="press-trailer__video"
+              id="trailer-video"
+              controls
+              playsinline
+              preload="none"
+              poster="../assets/images/thelastline_horde_arena-3d5bf4.jpg"
+            >
+              <source src="../assets/video/thelastline_trailer-f901bd.mp4" type="video/mp4" />
+            </video>
+          </div>
           <p class="press-trailer__links">
             <a href="../assets/video/thelastline_trailer-f901bd.mp4" download>
               Download 1080p MP4
@@ -576,11 +577,11 @@
 
       const trailerPlay = document.getElementById("trailer-play");
       const trailerVideo = document.getElementById("trailer-video");
+      const pressTrailer = document.getElementById("press-trailer");
 
       trailerPlay?.addEventListener("click", () => {
-        trailerPlay.hidden = true;
-        trailerVideo.hidden = false;
-        trailerVideo.play().catch(() => {});
+        pressTrailer?.classList.add("is-playing");
+        trailerVideo?.play().catch(() => {});
       });
 
       const galleryItems = Array.from(document.querySelectorAll(".press-gallery__item"));
