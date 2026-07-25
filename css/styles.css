@@ -901,6 +901,24 @@ body::after {
   color: var(--text-dim);
 }
 
+.legal ul {
+  margin: 0.75rem 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.legal li {
+  margin-bottom: 0.45rem;
+}
+
+.legal a {
+  color: var(--text);
+}
+
+.legal code {
+  font-size: 0.9em;
+  color: #f0c4a0;
+}
+
 .nav a[aria-current="page"] {
   color: var(--text);
 }

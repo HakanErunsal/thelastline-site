@@ -1,37 +1,74 @@
-﻿THE LAST LINE — FACT SHEET (EN)
-
-Title: The Last Line
-Tagline: Hold the barricade against up to 150 zombies, scavenge ruined cities,
-and face Souls-style bosses in a mobile survival shooter built for iPhone and iPad.
-
-Short description:
-The Last Line is a mobile zombie survival shooter built in Unreal Engine 5 for
-iPhone and iPad. Defend barricades against massive hordes, scavenge ruined cities, upgrade
-weapons, survive Endless nights, and fight arena bosses with Souls-style attack
-reads — all with crowd density tuned for mobile.
-
-Release date: 10 September 2026
-Pre-order: 20 August 2026
-Platform: iPhone and iPad (iOS)
-Price: Free to play
-Genre: Action, survival, strategy
-Players: Single-player
-Engine: Unreal Engine 5.7
-Languages: 46 UI languages; 10 full campaign voice dubs
-Developer / Publisher: Rigbak
-
-Website: https://thelastline.rigbak.com/
-Press kit: https://thelastline.rigbak.com/press/
-Press contact: thelastline@rigbak.com
-
-Key features:
-- Up to 150 zombies on screen with mobile-tuned crowd tech
-- First- and third-person barricade combat
-- City scavenging, loadout upgrades, and Endless mode
-- Souls-style arena bosses
-- 46 UI languages and 10 full voice dubs at launch
-
-Trailer: The Last Line | Official Gameplay Trailer
-https://thelastline.rigbak.com/press/#trailer
-
-Copyright © Rigbak. All rights reserved.
+﻿THE LAST LINE — FACT SHEET (EN)
+
+
+
+Title: The Last Line
+
+Tagline: Hold the barricade against up to 150 zombies, scavenge ruined cities,
+
+and face Souls-style bosses in a mobile survival shooter built for iPhone and iPad.
+
+
+
+Short description:
+
+The Last Line is a mobile zombie survival shooter built in Unreal Engine 5 for
+
+iPhone and iPad. Defend barricades against massive hordes, scavenge ruined cities, upgrade
+
+weapons, survive Endless nights, and fight arena bosses with Souls-style attack
+
+reads — all with crowd density tuned for mobile.
+
+
+
+Release date: 10 September 2026
+
+Pre-order: 20 August 2026
+
+Platform: iPhone and iPad (iOS)
+
+Price: Free to play
+
+Genre: Action, survival, strategy
+
+Players: Single-player
+
+Engine: Unreal Engine 5.7
+
+Languages: 46 UI languages; 10 full campaign voice-over languages (including English)
+
+Developer / Publisher: Rigbak
+
+
+
+Website: https://thelastline.rigbak.com/
+
+Press kit: https://thelastline.rigbak.com/press/
+
+Press contact: thelastline@rigbak.com
+
+
+
+Key features:
+
+- Up to 150 zombies on screen with mobile-tuned crowd tech
+
+- First- and third-person barricade combat
+
+- City scavenging, loadout upgrades, and Endless mode
+
+- Souls-style arena bosses
+
+- 46 UI languages and 10 full campaign voice-over languages at launch, including English
+
+
+
+Trailer: The Last Line | Official Gameplay Trailer
+
+https://thelastline.rigbak.com/press/#trailer
+
+
+
+Copyright © Rigbak. All rights reserved.
+

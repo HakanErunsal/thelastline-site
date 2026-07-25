@@ -1,31 +1,32 @@
-THE LAST LINE — BASIN BILGI FORMU (TR)
-
-Oyun adı: The Last Line
-Tek cümle: iPhone ve iPad için geliştirilmiş mobil hayatta kalma nişancısında 150
-zombiye kadar barikat savunması, harabe şehirlerde arama ve Souls tarzı boss
-savaşları.
-
-Kısa açıklama:
-The Last Line, Unreal Engine 5 ile iPhone ve iPad için geliştirilmiş bir zombi hayatta
-kalma nişancısıdır. Büyük sürülere karşı barikat savunması, şehirde kaynak
-arama, silah geliştirme, Endless geceleri ve Souls tarzı arena boss savaşları
-sunar.
-
-Çıkış: 10 Eylül 2026
-Ön sipariş: 20 Ağustos 2026
-Platform: iPhone ve iPad (iOS)
-Fiyat: Ücretsiz
-Tür: Aksiyon, hayatta kalma, strateji
-Oyuncu: Tek oyunculu
-Motor: Unreal Engine 5.7
-Diller: 46 arayüz dili; 10 tam seslendirme
-Geliştirici / Yayıncı: Rigbak
-
-Web sitesi: https://thelastline.rigbak.com/
-Basın kiti: https://thelastline.rigbak.com/press/
-Basın iletişim: thelastline@rigbak.com
-
-Fragman: The Last Line | Official Gameplay Trailer
-https://thelastline.rigbak.com/press/#trailer
-
-Telif © Rigbak. Tüm hakları saklıdır.
+THE LAST LINE — BASIN BILGI FORMU (TR)
+
+Oyun adı: The Last Line
+Tek cümle: iPhone ve iPad için geliştirilmiş mobil hayatta kalma nişancısında 150
+zombiye kadar barikat savunması, harabe şehirlerde arama ve Souls tarzı boss
+savaşları.
+
+Kısa açıklama:
+The Last Line, Unreal Engine 5 ile iPhone ve iPad için geliştirilmiş bir zombi hayatta
+kalma nişancısıdır. Büyük sürülere karşı barikat savunması, şehirde kaynak
+arama, silah geliştirme, Endless geceleri ve Souls tarzı arena boss savaşları
+sunar.
+
+Çıkış: 10 Eylül 2026
+Ön sipariş: 20 Ağustos 2026
+Platform: iPhone ve iPad (iOS)
+Fiyat: Ücretsiz
+Tür: Aksiyon, hayatta kalma, strateji
+Oyuncu: Tek oyunculu
+Motor: Unreal Engine 5.7
+Diller: 46 arayüz dili; 10 dilde tam kampanya seslendirmesi (İngilizce dahil)
+
+Geliştirici / Yayıncı: Rigbak
+
+Web sitesi: https://thelastline.rigbak.com/
+Basın kiti: https://thelastline.rigbak.com/press/
+Basın iletişim: thelastline@rigbak.com
+
+Fragman: The Last Line | Official Gameplay Trailer
+https://thelastline.rigbak.com/press/#trailer
+
+Telif © Rigbak. Tüm hakları saklıdır.
