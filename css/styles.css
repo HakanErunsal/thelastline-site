@@ -411,12 +411,32 @@ body::after {
   margin-top: 2rem;
 }
 
+.store-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.store-link {
+  display: inline-flex;
+  line-height: 0;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.store-link:hover,
+.store-link:focus-visible {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
 .store-badge {
   height: 48px;
   width: auto;
-  opacity: 0.5;
-  filter: grayscale(0.15);
+  display: block;
 }
+
 
 .hero__status {
   display: flex;
