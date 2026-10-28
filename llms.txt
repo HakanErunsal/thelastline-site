@@ -1,0 +1,25 @@
+# The Last Line
+
+> Free-to-play zombie barricade shooter for iPhone, iPad and Android by Rigbak. Hold the barricade against up to 150 zombies at once, scavenge ruined cities for resources, and face Souls-style arena bosses.
+
+- Platforms: iPhone and iPad (iOS), Android
+- Price: free to play, with in-app purchases and ads
+- Version 1.0 release: 10 September 2026 on the App Store, 11 September 2026 on Google Play
+- Players: single-player
+- Languages: game text in 46 languages, campaign voice-over in 10
+- Engine: Unreal Engine 5
+- Developer and publisher: Rigbak (https://rigbak.com)
+- Contact: thelastline@rigbak.com
+
+## Download
+
+- [App Store](https://apps.apple.com/us/app/the-last-line-zombie-siege/id6756308513): The Last Line: Zombie Siege for iPhone and iPad.
+- [Google Play](https://play.google.com/store/apps/details?id=com.rigbak.thelastline): The Last Line for Android.
+
+## Pages
+
+- [Home](https://thelastline.rigbak.com/): The game in brief: horde sieges at the barricade, arena boss fights, the arenas and weapons, languages, screenshots and store links.
+- [Press kit](https://thelastline.rigbak.com/press/): Fact sheet, official gameplay trailer, screenshots, app icons, key art and downloadable press packages.
+- [Engineering overview](https://thelastline.rigbak.com/engineering/): How the game is built in Unreal Engine 5: its in-house plugins, mobile combat systems and iOS and Android shipping work.
+- [Privacy policy](https://thelastline.rigbak.com/privacy.html): What the game and this website collect, how it is used, and the ad, purchase, analytics and leaderboard services involved.
+- [Terms of use](https://thelastline.rigbak.com/terms.html): License to play, in-app purchases and subscriptions, ads, online features and acceptable use.
