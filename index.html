@@ -52,6 +52,88 @@
       href="assets/images/thelastline_app_icon.png"
       type="image/png"
     />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://rigbak.com/#organization",
+            "name": "Rigbak",
+            "url": "https://rigbak.com"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://thelastline.rigbak.com/#website",
+            "url": "https://thelastline.rigbak.com/",
+            "name": "The Last Line",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://rigbak.com/#organization" }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://thelastline.rigbak.com/#webpage",
+            "url": "https://thelastline.rigbak.com/",
+            "name": "The Last Line | Zombie Barricade Shooter for iPhone, iPad and Android",
+            "inLanguage": "en",
+            "isPartOf": { "@id": "https://thelastline.rigbak.com/#website" },
+            "about": { "@id": "https://thelastline.rigbak.com/#game" }
+          },
+          {
+            "@type": ["VideoGame", "MobileApplication"],
+            "@id": "https://thelastline.rigbak.com/#game",
+            "name": "The Last Line",
+            "alternateName": "The Last Line: Zombie Siege",
+            "description": "Free-to-play zombie barricade shooter for iPhone, iPad and Android. Hold the barricade against up to 150 zombies at once, scavenge ruined cities and face Souls-style arena bosses.",
+            "url": "https://thelastline.rigbak.com/",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://thelastline.rigbak.com/assets/images/thelastline_app_icon.png",
+              "width": 512,
+              "height": 512
+            },
+            "screenshot": [
+              "https://thelastline.rigbak.com/assets/images/thelastline_horde_arena-3d5bf4.jpg",
+              "https://thelastline.rigbak.com/assets/images/thelastline_boss_chainsaw-9bb2bd.jpg",
+              "https://thelastline.rigbak.com/assets/images/thelastline_flamethrower-9e99aa.jpg",
+              "https://thelastline.rigbak.com/assets/images/thelastline_forest_night-7511c6.jpg",
+              "https://thelastline.rigbak.com/assets/images/thelastline_subway-3fb115.jpg",
+              "https://thelastline.rigbak.com/assets/images/thelastline_mobile_hud-d352c1.jpg",
+              "https://thelastline.rigbak.com/assets/images/thelastline_loadout-44bcfb.jpg"
+            ],
+            "genre": ["Action", "Survival", "Shooter", "Strategy"],
+            "gamePlatform": ["iPhone", "iPad", "Android"],
+            "operatingSystem": "iOS, Android",
+            "applicationCategory": "GameApplication",
+            "playMode": "https://schema.org/SinglePlayer",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "installUrl": [
+              "https://apps.apple.com/us/app/the-last-line-zombie-siege/id6756308513",
+              "https://play.google.com/store/apps/details?id=com.rigbak.thelastline"
+            ],
+            "sameAs": [
+              "https://apps.apple.com/us/app/the-last-line-zombie-siege/id6756308513",
+              "https://play.google.com/store/apps/details?id=com.rigbak.thelastline"
+            ],
+            "trailer": {
+              "@type": "VideoObject",
+              "name": "The Last Line | Official Gameplay Trailer",
+              "description": "Official gameplay trailer for The Last Line, a zombie barricade shooter for iPhone, iPad and Android.",
+              "thumbnailUrl": "https://thelastline.rigbak.com/assets/images/thelastline_horde_arena-3d5bf4.jpg",
+              "contentUrl": "https://thelastline.rigbak.com/assets/video/thelastline_trailer-f901bd.mp4",
+              "encodingFormat": "video/mp4",
+              "duration": "PT29.634S"
+            },
+            "author": { "@id": "https://rigbak.com/#organization" },
+            "publisher": { "@id": "https://rigbak.com/#organization" }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <header class="site-header" id="header">
