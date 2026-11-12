@@ -21,22 +21,37 @@
         var APP_STORE_URL = "https://apps.apple.com/app/id6756308513";
         var PLAY_URL = "https://play.google.com/store/apps/details?id=com.rigbak.thelastline";
 
+        // The pt= value from App Store Connect > Analytics > Campaigns. iOS links carry no campaign while it is empty.
+        var APPLE_PROVIDER_TOKEN = "";
+
         var query = new URLSearchParams(window.location.search);
+        var source = (query.get("c") || "").trim();
+
         var referrer = new URLSearchParams();
+        if (source) {
+          referrer.set("utm_source", source);
+          referrer.set("utm_medium", "referral");
+          referrer.set("utm_campaign", source);
+        }
         query.forEach(function (value, key) {
-          if (key.indexOf("utm_") === 0) referrer.append(key, value);
+          if (key.indexOf("utm_") === 0) referrer.set(key, value);
         });
         var playUrl = referrer.toString() ? PLAY_URL + "&referrer=" + encodeURIComponent(referrer.toString()) : PLAY_URL;
+
+        var campaign = (referrer.get("utm_campaign") || referrer.get("utm_source") || "").slice(0, 40);
+        var appStoreUrl = campaign && APPLE_PROVIDER_TOKEN
+          ? APP_STORE_URL + "?pt=" + encodeURIComponent(APPLE_PROVIDER_TOKEN) + "&ct=" + encodeURIComponent(campaign) + "&mt=8"
+          : APP_STORE_URL;
 
         var ua = navigator.userAgent || "";
         // iPadOS 13+ Safari reports a desktop Mac user agent; touch points tell it apart from a real Mac.
         var isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
         var isAndroid = /Android/i.test(ua);
 
-        window.TLL_STORE = { appStore: APP_STORE_URL, play: playUrl };
+        window.TLL_STORE = { appStore: appStoreUrl, play: playUrl };
 
         if (isIOS) {
-          window.location.replace(APP_STORE_URL);
+          window.location.replace(appStoreUrl);
         } else if (isAndroid) {
           window.location.replace(playUrl);
         }
@@ -82,7 +97,10 @@
       <a class="home" href="/">thelastline.rigbak.com</a>
     </main>
     <script>
-      if (window.TLL_STORE) document.getElementById("play").href = window.TLL_STORE.play;
+      if (window.TLL_STORE) {
+        document.getElementById("appstore").href = window.TLL_STORE.appStore;
+        document.getElementById("play").href = window.TLL_STORE.play;
+      }
     </script>
   </body>
 </html>
